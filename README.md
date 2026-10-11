@@ -1,5 +1,8 @@
 # Electrotrack
 
+<img width="1268" height="827" alt="3dPCB" src="https://github.com/user-attachments/assets/24169744-645e-483c-90ab-85a70d674799" />
+
+
 Electrotrack is an experimental multi-stage electromagnetic ball accelerator (coilgun). An ESP32 reads infrared (IR) photo-interrupter sensors placed along a 3D-printed track and fires a sequence of coils to pull a steel ball forward. Each coil is switched off as the ball reaches its centre, so the ball is not pulled back.
 
 ## Hardware overview
