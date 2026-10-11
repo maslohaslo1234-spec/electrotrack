@@ -10,12 +10,12 @@
 
 | Week | Tier | Hours logged | Entries |
 | --- | --- | --- | --- |
-| Week 1 | Tier 1 | 17.18h | 2 |
+| Week 1 | Tier 1 | 19.18h | 2 |
 
 ## Contents
 
 1. [2026-10-06 – ## Week 1 – Entry 1: Concept, schematic and idea reel](#2026-10-06-week-1-entry-1-concept-schematic-and-idea-reel)
-2. [2026-10-11 – Work session](#2026-10-11-work-session)
+2. [2026-10-11 – Week 1 – Entry 2: KiCad schematic, PCB layout and routing](#2026-10-11-week-1-entry-2-kicad-schematic-pcb-layout-and-rou)
 
 ## Design
 
@@ -111,9 +111,68 @@ Finalized and published the Entry 1 log, organizing footage, GIF demonstrations,
 - Select MOSFET gate resistors and pull-down resistors.
 - **Next:** Transfer schematic to KiCad, generate the Bill of Materials (BOM), and layout the PCB.
 
-### 2026-10-11 – Work session
+### 2026-10-11 – Week 1 – Entry 2: KiCad schematic, PCB layout and routing
 
-**7.18h**
+**9.18h**
+
+Week 1 – Entry 2: KiCad schematic, PCB layout and routing
+Total time: ~7.2 h (recorded in timelapses)
+
+* ~3 h: KiCad schematic, footprints and BOM
+* ~2 h: component placement + OLED and spare-GPIO headers
+* ~1 h: routing the 2-layer board
+* ~1 h: DRC fixes, Gerber/BOM export and GitHub repo
+* ~1 h: editing the timelapse reel & writing Entry 2
+
+Day 3 (07.10): KiCad schematic, footprints and BOM
+I redrew the hand-drawn schematic in KiCad: ESP32 30-pin devkit, 4 coil channels (IRLZ44N MOSFET, 100 ohm gate resistor, 10k pull-down, SB560 flyback diode), 4 IR sensor inputs (JST XH connectors with resistors), 12 V input through an XT30 connector with fuse and switch, and an L7805 for 5 V.
+
+![schematic](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/3b39a14ae5428734f6d433e6eb5703f1005094a694422dabb4213581d63f6829.png)
+
+KiCad schematic
+
+Then I assigned footprints and exported the BOM.
+
+![footprint](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/3065b54ca51a5a8df67fa0073e07a85f3dae258c72068315989d50682df1c4ff.png)
+
+Footprints assigned and loaded into the PCB editor
+
+Day 4 (08.10): Component placement
+I placed all components on the board, then added two extras: a 0.96" I2C OLED header (SDA on GPIO21, SCL on GPIO22) to show ball speed, and a 1x10 header with spare GPIOs, 3.3 V and GND for future needs.
+
+Day 5 (10.10): Tidying the layout
+I regrouped the parts: each coil channel in one row (terminal, flyback diode, MOSFET, resistors), power input and capacitors in one corner, ESP32 with the USB port at the board edge, and IR connectors on the opposite side.
+
+Day 6 (11.10): Routing, DRC and fabrication files
+I routed a 2-layer board: 2.5 mm traces for 12 V, 1.5-2.5 mm for coil nets, 0.3-0.5 mm for signals, and a GND copper pour on both layers. Then I ran DRC and fixed all errors (thermal relief errors solved with solid pad connections, plus one unconnected GND pad). Only silkscreen warnings are left. Finally I exported Gerbers, drill files, BOM and schematic, and pushed everything to GitHub.
+
+![3d](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/86fe5185d5067398fa694d7c6ad49d3f62786b66d3601bcc5b141c53852f79a0.png)
+
+3D view of the finished PCB
+
+Problems & Solutions
+
+* Wrong layer count: the imported JLCPCB template had 4 copper layers. I switched the board to 2 layers in Board Setup.
+* XT30 polarity: the + and - were swapped between my schematic and the footprint. I fixed it in the schematic before routing.
+* MOSFET gate drive: the IRLZ44N gate is driven from 3.3 V, but the datasheet specifies its on-resistance only for 4-5 V. I decided to keep it for this version and measure the drain-source voltage when I build it. A gate driver can be added later if needed.
+* DRC errors: the GND pour used a 0.5 mm clearance and thermal reliefs, which left some pads under-connected. Changing it to a 0.3 mm clearance and solid pad connections fixed all errors.
+* Gate and pull-down resistors (open item from Entry 1): chose 100 ohm gate resistors and 10k pull-downs, so the MOSFETs stay off while the ESP32 boots.
+* IR LED resistors: the schematic uses 150 ohm from 3.3 V (about 14 mA, assuming about 1.2 V forward voltage) instead of the 220 ohm I first planned. I will verify this with the real sensors.
+
+Still to check / Next steps
+
+* Measure the coil DC resistance and check that the 5 A fuse matches the peak current.
+* Measure the MOSFET drain-source voltage with a 3.3 V gate drive during a coil pulse.
+* Check how hot the L7805 gets.
+* Firmware must limit the on-time of each coil.
+* Order the PCB and parts after approval, wind the coils and 3D-print the track.
+
+Additional hours (not covered by the timelapses)
+The extra hours I added to this entry (~X h in total) come from work that is not on the timelapses:
+
+* ~0.5 h: editing the progress reel
+* ~0.5 h: writing Entry 2
+* ~1 h: adding footprints (assigning footprints and drawing the custom ESP32 footprint), which I did not record
 
 [Timelapse](https://lookout.hackclub.com/api/media/6e4bf680-f906-4f02-b66c-daf962ac259b/video.mp4)
 
