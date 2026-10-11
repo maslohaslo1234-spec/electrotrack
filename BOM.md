@@ -18,7 +18,7 @@
 | [XT30UPB-M XT30 PCB socket](https://botland.com.pl/zlacza-do-akumulatorow/24155-gniazdo-xt30u-f-zlacze-zenskie-wysokopradowe-5szt.html) | Battery input connector | 1 | $3.80 | $3.80 | [botland](https://botland.com.pl/zlacza-do-akumulatorow/24155-gniazdo-xt30u-f-zlacze-zenskie-wysokopradowe-5szt.html) |
 | [JST XH XHP-3 housing](https://botland.com.pl/zlacza-raster-254mm/19558-zestaw-zlacz-justpi-jst-xh254-2345-pin-meskiezenskie-i-pinow-zenskich-do-obudowy-gniazda-230szt-5904422328559.html) | Plugs for the IR sensor cables | 1 | $5.87 | $5.87 | [botland](https://botland.com.pl/zlacza-raster-254mm/19558-zestaw-zlacz-justpi-jst-xh254-2345-pin-meskiezenskie-i-pinow-zenskich-do-obudowy-gniazda-230szt-5904422328559.html) |
 | **Parts subtotal** | — | — | — | **$20.68** | — |
-| **Tax & shipping** | — | — | — | **$10.00** | — |
-| **Total** | — | — | — | **$30.68** | — |
+| **Tax & shipping** | — | — | — | **$8.00** | — |
+| **Total** | — | — | — | **$28.68** | — |
 
-**$0.68 over the tier's funding.** Every tier gives a fixed amount for parts, so this needs cutting back or a higher tier.
+$1.32 left of the tier's funding.
