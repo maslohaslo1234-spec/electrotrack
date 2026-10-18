@@ -96,7 +96,7 @@ This is an unverified first revision.
 
 ## Documentation
 
-I am making an effort to document this project in English, but my English is still limited. I used a AI to help write and translate the descriptions and explain my work more clearly.
+I am making an effort to document this project in English, but my English is still limited. I use AI tools to help translate and improve the English in my project documentation.
 
 The funding BOM and development journal are synchronized from [Half Life](https://halflife.hackclub.com/).
 
