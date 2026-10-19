@@ -30,13 +30,59 @@ The goal is to build and document a working experimental prototype, then compare
 - **Expansion:** A 1×10 header exposing spare ESP32 GPIO pins, 3.3 V and GND.
 - **PCB:** A two-layer board designed in KiCad 10, with GND copper pours on both layers.
 
+## ESP32 connections
+
+The PCB uses an ESP32 30-pin DevKit. The numbers below are GPIO numbers, not physical connector-pin numbers.
+
+### IR sensor inputs
+
+| Connector | Receiver signal | ESP32 pin |
+| --- | --- | --- |
+| J1 | OUT, connector pin 3 | GPIO36 |
+| J2 | OUT, connector pin 3 | GPIO39 |
+| J3 | OUT, connector pin 3 | GPIO34 |
+| J4 | OUT, connector pin 3 | GPIO35 |
+
+Each IR connector has the following pin assignment:
+
+| Connector pin | Connection |
+| --- | --- |
+| 1 | IR emitter supply through a 150 Ω resistor from 3.3 V |
+| 2 | GND |
+| 3 | Receiver output, connected to the corresponding ESP32 input |
+
+Each receiver signal has an external 10 kΩ pull-up resistor to 3.3 V.
+
+GPIO34, GPIO35, GPIO36 and GPIO39 are input-only pins without internal pull-up resistors. The firmware therefore uses `INPUT`; the pull-ups are provided by the PCB.
+
+
+### OLED display
+
+Connector J10 is intended for an I2C SSD1306 OLED.
+
+| J10 pin | Signal | ESP32 connection |
+| --- | --- | --- |
+| 1 | SCL | GPIO22 |
+| 2 | SDA | GPIO21 |
+| 3 | Display supply | 3.3 V |
+| 4 | Ground | GND |
+
+
+### Power connections
+
+| ESP32 connection | PCB connection |
+| --- | --- |
+| VIN | Board's +5 V rail |
+| 3.3 V | Logic supply for the sensor circuits and OLED |
+| GND | Common PCB ground |
+
 
 ## Mechanical design
 
 The mechanical parts are being designed in Onshape. The current CAD includes:
 
 - Curved guide segments forming a circular track.
-- Separate coil bobbins.
+- Separate coil formers.
 - IR sensor mounts.
 - An initial assembly showing how the parts fit together.
 
