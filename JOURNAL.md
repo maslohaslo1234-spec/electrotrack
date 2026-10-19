@@ -188,6 +188,7 @@ Time spent on these changes: ~2.5 h (~1.5 h README, ~1 h firmware), not covered 
 * Added a hardware overview, a project files table, a status checklist and ESP32 connections
 * Added a Firmware section to the README (see below).
 
+![image](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/8a4c31281db1a7519e1cf9cab3b343352e3352b508aeff322f3db49ccf151ec8.png)
 2) Firmware: first draft (~1 h)
 The firmware is in the repo at software/firmware/firmware.ino and is described in the "Firmware" section of the README. It was written with AI assistance (vibe coding), and the README says so clearly. It has not been tested on hardware yet.
 * An IR sensor sits just before each coil. When the ball is detected, an interrupt switches that coil on and schedules the switch-off for when the ball reaches the coil centre, based on the speed measured between the previous two sensors.
@@ -196,6 +197,8 @@ The firmware is in the repo at software/firmware/firmware.ino and is described i
 * The OLED shows the current speed, peak speed and hit count. BOOT starts and stops a run.
 * The code has a setting IR_TRIGGER EDGE) that lets it be tried in an online simulator with push buttons instead of the IR sensors.
 * After writing the draft I reviewed it against the schematic and fixed two problems: the IR pin order in the code was outdated (now 36, 35, 34, 39 for J1-J4), and the coil timeout check in loop() could report a false fault because of a timing race with the interrupt. I also tidied the code.
+
+![image](https://halflife.hackclub-assets.com/hackclub-half-life/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/c0592f5683bc9674452e3192d88c9f875cb72fc87f840fddcecb5d45524df252.png)
 
 Next steps for the firmware: test it on the real board, tune the switch-off timing and update the geometry values (sensor spacing, sensor-to-coil-centre distance)
 
