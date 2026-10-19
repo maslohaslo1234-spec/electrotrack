@@ -4,13 +4,13 @@
 <!-- Generated: 2026-10-11T19:37:45.149Z -->
 
 > [!NOTE]
-> This devlog is mirrored from [Half Life](https://halflife.hackclub.com). Editing it here will not change the platform's copy, and the next sync overwrites this file.
+> This devlog is mirrored from [Half Life](https://halflife.hackclub.com) – [open the project](https://halflife.hackclub.com/projects/cmuva2sdt0fjm01smhur2xi6g). Editing it here will not change the platform's copy, and the next sync overwrites this file.
 
-> Electrotrack is a multi-stage electromagnetic ball accelerator (coilgun) with a custom PCB. An ESP32 reads IR photo-interrupters along a 3D-printed track and fires a sequence of coils to pull a steel ball forward. Each coil is switched off as the ball reaches its center, so it isn't pulled back. Hardware - ESP32 controller, 4 coil channels (logic-level N-MOSFETs + flyback diodes) - Coils wound from 0.3 mm copper wire - 3S LiPo (≈12 V)  - IR position sensors salvaged from a photocopier - 7.5 mm or 12 mm steel ball [final choice TBD] Status - Concept, hand-drawn schematic, KiCad schematic,  idea reel done  - Next: BOM, PCB layout - Later: coil winding, 3D-printed track, firmware, speed measurement - GitHub: The repository will contain the KiCad project, BOM, and firmware. *Inspired by Hyperspace Pirate's electromagnetic accelerator project.*
+> Electrotrack is a multi-stage electromagnetic ball accelerator (coilgun) with a custom PCB. An ESP32 reads IR photo-interrupters along a 3D-printed track and fires a sequence of coils to pull a steel ball forward. Each coil is switched off as the ball reaches its center, so it isn't pulled back. Hardware - ESP32 controller, 4 coil channels (logic-level N-MOSFETs + flyback diodes) - Coils wound from 0.3 mm copper wire - 3S LiPo (≈12 V)  - IR position sensors salvaged from a photocopier - 7.5 mm steel ball *Inspired by Hyperspace Pirate's electromagnetic accelerator project.*
 
 | Week | Tier | Hours logged | Entries |
 | --- | --- | --- | --- |
-| Week 1 | Tier 1 | 19.18h | 2 |
+| Week 1 | Tier 1 | 21.68h | 2 |
 
 ## Contents
 
@@ -113,7 +113,7 @@ Finalized and published the Entry 1 log, organizing footage, GIF demonstrations,
 
 ### 2026-10-11 – Week 1 – Entry 2: KiCad schematic, PCB layout and routing
 
-**9.18h**
+**11.68h**
 
 Week 1 – Entry 2: KiCad schematic, PCB layout and routing
 Total time: ~7.2 h (recorded in timelapses)
@@ -168,11 +168,36 @@ Still to check / Next steps
 * Order the PCB and parts after approval, wind the coils and 3D-print the track.
 
 Additional hours (not covered by the timelapses)
-The extra hours I added to this entry (~X h in total) come from work that is not on the timelapses:
+The extra hours I added to this entry (~2 h in total) come from work that is not on the timelapses:
 
 * ~0.5 h: editing the progress reel
 * ~0.5 h: writing Entry 2
 * ~1 h: adding footprints (assigning footprints and drawing the custom ESP32 footprint), which I did not record
+
+CHANGES MADE AFTER REVIEW (resubmission)
+The project was reviewed and returned with "Design needs changes". Everything in this section was done AFTER that review, in response to the reviewer's feedback.
+
+Reviewer feedback:
+1. Make the README more descriptive: what the project is, what it does / what its purpose is, and why it exists.
+2. Start writing the firmware now.
+
+Time spent on these changes: ~2.5 h (~1.5 h README, ~1 h firmware), not covered by the timelapses.
+
+1) README: more descriptive (~1 h)
+* Added sections explaining what Electrotrack is, what it is intended to do and why I am building it (inspired by Hyperspace Pirate's videos, and a way to learn the full path from schematic to PCB, CAD, firmware and prototype).
+* Added a hardware overview, a project files table, a status checklist and ESP32 connections
+* Added a Firmware section to the README (see below).
+
+2) Firmware: first draft (~1 h)
+The firmware is in the repo at software/firmware/firmware.ino and is described in the "Firmware" section of the README. It was written with AI assistance (vibe coding), and the README says so clearly. It has not been tested on hardware yet.
+* An IR sensor sits just before each coil. When the ball is detected, an interrupt switches that coil on and schedules the switch-off for when the ball reaches the coil centre, based on the speed measured between the previous two sensors.
+* A high-priority task waits for the switch-off time with microsecond precision, so the timing does not depend on the 1 ms FreeRTOS tick.
+* Software safety: 80 ms maximum on-time per coil, the previous coil is forced off when the next sensor fires, a run stops after 400 sensor events, and any fault switches all coils off until the next start.
+* The OLED shows the current speed, peak speed and hit count. BOOT starts and stops a run.
+* The code has a setting IR_TRIGGER EDGE) that lets it be tried in an online simulator with push buttons instead of the IR sensors.
+* After writing the draft I reviewed it against the schematic and fixed two problems: the IR pin order in the code was outdated (now 36, 35, 34, 39 for J1-J4), and the coil timeout check in loop() could report a false fault because of a timing race with the interrupt. I also tidied the code.
+
+Next steps for the firmware: test it on the real board, tune the switch-off timing and update the geometry values (sensor spacing, sensor-to-coil-centre distance)
 
 [Timelapse](https://lookout.hackclub.com/api/media/6e4bf680-f906-4f02-b66c-daf962ac259b/video.mp4)
 
