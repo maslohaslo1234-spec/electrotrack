@@ -118,7 +118,7 @@ The mechanical part of the project is tracked separately:
 
 > **AI disclosure:** The firmware was written with AI assistance (vibe coding) and then reviewed and tidied up with AI tools. It is a first draft and has **not been tested on hardware**. Treat it as an untested starting point, not as verified code.
 
-The sketch is in [`firmware/electrotrack/electrotrack.ino`](firmware/electrotrack/electrotrack.ino).
+The sketch is in [`software/firmware/firmware.ino`](software/firmware/firmware.ino).
 
 ### How it works
 
@@ -182,7 +182,7 @@ The geometry values are initial estimates and must be updated to match the final
 | [`hardware/electrotrack.kicad_pcb`](hardware/electrotrack.kicad_pcb) | PCB layout |
 | [`hardware/electrotrack.pretty/`](hardware/electrotrack.pretty/) | Custom footprint library, including the ESP32 30-pin footprint |
 | [`hardware/electrotrack.csv`](hardware/electrotrack.csv) | Electronic component list exported from KiCad |
-| [`firmware/electrotrack/electrotrack.ino`](firmware/electrotrack/electrotrack.ino) | ESP32 firmware (AI-assisted first draft, untested) |
+| [`software/firmware/firmware.ino`](software/firmware/firmware.ino) | ESP32 firmware (AI-assisted first draft, untested) |
 | [`gerber/`](gerber/) | PCB fabrication Gerber exports |
 | [`drill files/`](drill%20files/) | PCB drill exports |
 | [`pdf/`](pdf/) | PDF plots of the PCB layers |
