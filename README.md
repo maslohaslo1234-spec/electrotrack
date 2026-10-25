@@ -99,6 +99,9 @@ GPIO3 is the UART0 RX pin used for USB programming, and GPIO5 is a strapping pin
 | 3.3 V | Logic supply for the sensor circuits and OLED |
 | GND | Common PCB ground |
 
+<img width="848" height="916" alt="image" src="https://github.com/user-attachments/assets/733bb69c-d8f0-434e-99e8-5e6b5a5934a9" />
+
+
 ## Mechanical design
 
 The mechanical parts are being designed in Onshape. The current CAD includes:
