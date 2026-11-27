@@ -10,7 +10,7 @@
 
 | Week | Tier | Hours logged | Entries |
 | --- | --- | --- | --- |
-| Week 1 | Tier 1 | 26.18h | 4 |
+| Week 1 | Tier 1 | 29.18h | 4 |
 
 ## Contents
 
@@ -246,7 +246,7 @@ Today 24.11 the final packed arrived so I am strting to write this entry. The el
 
 ### 2026-11-26: Today before school I started testing the IR sensors. I used AI to write the test code, it has a browser dashboard for showing the sonsor data and also shows it on the OLED display on the PCB. I solde
 
-**1h**
+**4h**
 
 Today before school I started testing the IR sensors. I used AI to write the test code, it has a browser dashboard for showing the sonsor data and also shows it on the OLED display on the PCB. I soldered one sensor but the display was showing incorrect data. It turned out that it was just the pins of the sensors were assigned wrong. After I  fixed this it worked well. when the WIFI on the esp32 was turned on and I was powering it from my bench supply at 9V the current was ~0,150A. I checked how hot was the 5V regulator getting, it was getting quite warm, but not hot so for now I am not adding any heatsink. Without vibe coding before school I spend around 1h on this project.
 
