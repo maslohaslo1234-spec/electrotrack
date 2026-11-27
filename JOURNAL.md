@@ -252,8 +252,17 @@ Today before school I started testing the IR sensors. I used AI to write the tes
 
 After school I vibe coded the rest of the code it has the sensor test dashboard with the interrupt-driven coil controler, speed calculation, and coil timeout safety logic
 
+Then I printed the coil bobbin, sensor module and two track praats from grey PETG. Wound the coil using 0.3mm copper wire I made six layers of copper wire on in the bobbin it took me very long (~1.5) because I didn'd have expierience winding and also I wanted to do it perfectly, it did'd turn out like this but I think it's pretty good. then I soldered the sensor and started testing. I tried to get that one coil and a sensor to accelerate the ball through that part of a track using slightly modified firmwere but I did'd manage to do that. After that I tried to light up an LED using the sensor and the coil input after even that didn'd work I just rage quited for that day.
 ![image](https://halflife.hackclub-assets.com/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/bb162ab4d58709ef498717e90a118eb905444805c02a5d922bff6479b7f82cc7.png)
 
 ![image](https://halflife.hackclub-assets.com/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/b3b8259943c6a38e7b8b5c7b6c0d9dc003c2d94cd44bf6f42af88fd406febc9d.png)
 
 ![Zrzut ekranu 2026-11-26 152613](https://halflife.hackclub-assets.com/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/6ba0129c45ea960269bcf9ad1e9d70e6e8a90ccf0c0eba091f8739c7f8897814.png)
+
+![image](https://halflife.hackclub-assets.com/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/f6eff985ff0e5b606898547fb01a4f5adbce87c5af0e1c3753bb0b70c81149b9.png)
+
+![image](https://halflife.hackclub-assets.com/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/d8aea29cab0d9c4bccedc353051566df95c4012bacbee17973bf65c06cbb630b.png)
+
+![image](https://halflife.hackclub-assets.com/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/0f2ec4b69298b23c302eab9a7284f3eb347eececb6d7b73c9d33f8665d55ded1.png)
+
+![image](https://halflife.hackclub-assets.com/sessions/D1H5wjMaoqfsZfeTslugwWB4nIQcEzNR/0edbc0bb87f22c141ba09d37fb0f8c840a0e57b824d273232c9bed0c09c55884.png)
